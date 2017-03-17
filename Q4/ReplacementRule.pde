@@ -16,8 +16,8 @@ class ReplacementRule{
   
   //If this is the first time replaceThisOne is run with a, generate a lifespan
   //  for a and store it in a list
-  //Returns true if a is not alive or the agent's age exceeds its lifespan
-  //Returns false otherwise
+  //Return true if a is not alive or the agent's age exceeds its lifespan
+  //Return false otherwise
   public boolean replaceThisOne(Agent a){
     if(a==null) return false;
     if(!a.isAlive()) return true;
