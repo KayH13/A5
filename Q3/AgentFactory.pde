@@ -21,7 +21,7 @@ class AgentFactory{
     int randVis = (int) (Math.random()*visRange) + this.minVision;
     int initSugRange = this.maxInitSugar-this.minInitSugar + 1;
     int randInitSug = (int) (Math.random()*initSugRange) + this.minInitSugar;
-    return new Agent(randMet, randVis, randInitSug, this.movementRule); //stub
+    return new Agent(randMet, randVis, randInitSug, this.movementRule);
   }
   
 }
