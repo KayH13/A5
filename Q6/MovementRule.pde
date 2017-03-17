@@ -63,5 +63,41 @@ class PollutionMovementRule implements MovementRule{
     }
     return closestBest;
   }  
+}
+
+
+
+class SeasonalGrowbackRule implements GrowthRule{
+  private int alpha, beta, gamma, equator, numSquares;
+  private boolean northSummer;
+  private int numTimesCalled;
   
+  public SeasonalGrowbackRule(int alpha, int beta, int gamma, int equator, 
+                              int numSquares){
+    this.alpha = alpha;
+    this.beta = beta;
+    this.gamma = gamma;
+    this.equator = equator;
+    this.numSquares = numSquares;
+    this.northSummer = true;
+    this.numTimesCalled = 0;
+  }
+  
+  public void growback(Square s){
+    this.numTimesCalled++;
+    if(numTimesCalled==this.gamma*this.numSquares){
+      this.northSummer = !this.northSummer;
+      numTimesCalled=0;
+    }
+    if((s.getY()<=this.equator&&northSummer)||(s.getY()>this.equator&&!northSummer)){
+      s.setSugar(s.getSugar()+this.alpha);
+    }
+    else{
+      s.setSugar(s.getSugar()+this.beta);
+    }
+  }
+  
+  public boolean isNorthSummer(){
+    return this.northSummer;
+  }
 }
