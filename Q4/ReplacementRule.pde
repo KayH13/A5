@@ -22,7 +22,6 @@ class ReplacementRule{
     if(a==null) return false;
     if(!a.isAlive()) return true;
     if(!this.agents.contains(a)){
-      System.out.println("Agent's first time.");
       int ageRange = this.maxAge - this.minAge + 1;
       int lifespan = (int) (Math.random()*ageRange)+this.minAge;
       this.agents.add(a);
@@ -31,9 +30,7 @@ class ReplacementRule{
     else{
       int index = this.agents.indexOf(a);
       int lifespan = this.lifespans.get(index);
-      System.out.println("Agent: "+a+" age: "+a.getAge()+" lifespan: "+lifespan);
       if(a.getAge()>=lifespan){
-        System.out.println("Agent is old.");
         a.setAge(a.getAge()+1);
         return true;
       }
