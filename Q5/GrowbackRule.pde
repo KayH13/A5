@@ -2,6 +2,8 @@ interface GrowthRule{
   public void growBack(Square s);
 }
 
+//============================================
+
 // represent G rules in Axel and Epstein's book
 // rate at which sugar grows back on the sugarscape
 //    g(infinite) rule (each iteration results in the square's sugar = maxCapacity)
@@ -18,6 +20,8 @@ class GrowbackRule implements GrowthRule{
   } 
 }
 
+//============================================
+
 class SeasonalGrowbackRule implements GrowthRule{
   private int alpha, beta, gamma, equator, numSquares;
   private boolean northSummer;
@@ -33,6 +37,13 @@ class SeasonalGrowbackRule implements GrowthRule{
     this.northSummer = true;
     this.numTimesCalled = 0;
   }
+  
+  public int getAlpha(){ return this.alpha; }
+  public int getBeta(){ return this.beta; }
+  public int getGamma(){ return this.gamma; }
+  public int getEquator(){ return this.equator; }
+  public int getNumSquares(){ return this.numSquares; }
+  public int getNumTimesCalled(){ return this.numTimesCalled; }
   
   public void growBack(Square s){
     this.numTimesCalled++;
