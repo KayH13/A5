@@ -1,5 +1,5 @@
 interface GrowthRule{
-  public void growback(Square s);
+  public void growBack(Square s);
 }
 
 // represent G rules in Axel and Epstein's book
@@ -13,7 +13,7 @@ class GrowbackRule implements GrowthRule{
     this.rate = r;
   }
   
-  public void growback(Square s){
+  public void growBack(Square s){
     s.setSugar(s.getSugar()+this.rate);
   } 
 }
@@ -34,7 +34,7 @@ class SeasonalGrowbackRule implements GrowthRule{
     this.numTimesCalled = 0;
   }
   
-  public void growback(Square s){
+  public void growBack(Square s){
     this.numTimesCalled++;
     if(numTimesCalled==this.gamma*this.numSquares){
       this.northSummer = !this.northSummer;
