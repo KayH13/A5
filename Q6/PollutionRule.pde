@@ -10,6 +10,7 @@ class PollutionRule{
     if(s.getAgent()!=null){
       int increase = s.getAgent().getMetabolism()*this.eatingPollution+
                      s.getSugar()*this.gatheringPollution;
+      s.setOldPollution(s.getPollution());
       s.setPollution(s.getPollution()+increase);
     }
   }
