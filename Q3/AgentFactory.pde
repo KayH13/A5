@@ -15,12 +15,9 @@ class AgentFactory{
   }
   
   public Agent makeAgent(){
-    int metRange = this.maxMetabolism-this.minMetabolism + 1;
-    int randMet = (int) (Math.random()*metRange) + this.minMetabolism;
-    int visRange = this.maxVision-this.minVision + 1;
-    int randVis = (int) (Math.random()*visRange) + this.minVision;
-    int initSugRange = this.maxInitSugar-this.minInitSugar + 1;
-    int randInitSug = (int) (Math.random()*initSugRange) + this.minInitSugar;
+    int randMet = (int) (random(this.minMetabolism,this.maxMetabolism+1));
+    int randVis = (int) (random(this.minVision,this.maxVision+1));
+    int randInitSug = (int) (random(this.minInitSugar,this.maxInitSugar+1));
     return new Agent(randMet, randVis, randInitSug, this.movementRule);
   }
   
